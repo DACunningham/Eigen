@@ -31,8 +31,24 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="app\nlp\InterestingWordManager.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\nlp\KeyWordExtractor.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\nlp\Term.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\nlp\TextProcessor.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\nlp\FileIO.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="app\forms.py" />
     <Compile Include="app\models.py" />
+    <Compile Include="app\nlp\__init__.py" />
     <Compile Include="app\tests.py" />
     <Compile Include="app\views.py" />
     <Compile Include="app\__init__.py" />
@@ -45,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\" />
+    <Folder Include="app\nlp\" />
     <Folder Include="app\migrations\" />
     <Folder Include="app\static\" />
     <Folder Include="app\static\app\" />

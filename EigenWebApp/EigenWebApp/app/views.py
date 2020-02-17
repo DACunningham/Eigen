@@ -7,6 +7,8 @@ from django.http import HttpRequest
 from django.template import RequestContext
 from datetime import datetime
 
+import app.nlp.InterestingWordManager
+
 def home(request):
     """Renders the home page."""
     assert isinstance(request, HttpRequest)
@@ -22,6 +24,8 @@ def home(request):
 def contact(request):
     """Renders the contact page."""
     assert isinstance(request, HttpRequest)
+    interesting_words = InterestingWordManager()
+    interesting_terms = interesting_words.get_interesting_terms()
     return render(
         request,
         'app/contact.html',
