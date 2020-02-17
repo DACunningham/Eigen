@@ -7,7 +7,7 @@ from django.http import HttpRequest
 from django.template import RequestContext
 from datetime import datetime
 
-import app.nlp.InterestingWordManager
+from app.nlp.InterestingWordManager import InterestingWordManager
 
 def home(request):
     """Renders the home page."""

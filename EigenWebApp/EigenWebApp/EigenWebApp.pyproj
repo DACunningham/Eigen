@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\" />
+    <Folder Include="app\resources\" />
     <Folder Include="app\nlp\" />
     <Folder Include="app\migrations\" />
     <Folder Include="app\static\" />
@@ -73,6 +74,13 @@
     <Folder Include="EigenWebApp\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\resources\doc1.txt" />
+    <Content Include="app\resources\doc2.txt" />
+    <Content Include="app\resources\doc3.txt" />
+    <Content Include="app\resources\doc4.txt" />
+    <Content Include="app\resources\doc5.txt" />
+    <Content Include="app\resources\doc6.txt" />
+    <Content Include="app\resources\stopwords.txt" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
     <Content Include="app\static\app\content\bootstrap.css" />

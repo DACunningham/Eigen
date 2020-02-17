@@ -1,13 +1,13 @@
 import re
 
-from nltk.stem import word_net_lemmatizer
+from nltk.stem import WordNetLemmatizer
 import nltk.data
 
-import FileIO
+from app.nlp.FileIO import FileIO
 
 class TextProcessor(object):
     """description of class"""
-    STOP_WORD_LOCATION = "resources/stopwords.txt"
+    STOP_WORD_LOCATION = "app/resources/stopwords.txt"
 
     def __init__(self, *args, **kwargs):
         self.tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
@@ -34,7 +34,7 @@ class TextProcessor(object):
 
     def lemmatize_words(self, words):
         # init lemmatizer
-        lemmatizer = word_net_lemmatizer()
+        lemmatizer = WordNetLemmatizer()
         #lemmatize variations
         lemmatized_words = [lemmatizer.lemmatize(word = word, pos = 'v') for word in words]
         return lemmatized_words

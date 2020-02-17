@@ -1,13 +1,9 @@
 import os
 
-import app.nlp.FileIO
-import app.nlp.TextProcessor
-import app.nlp.KeyWordExtractor
-import app.nlp.Term
-#from FileIO import FileIO
-#from TextProcessor import TextProcessor
-#from KeyWordExtractor import KeyWordExtractor
-#from Term import Term
+from app.nlp.FileIO import FileIO
+from app.nlp.TextProcessor import TextProcessor
+from app.nlp.KeyWordExtractor import KeyWordExtractor
+from app.nlp.Term import Term
 
 class InterestingWordManager(object):
     """description of class"""
@@ -17,9 +13,9 @@ class InterestingWordManager(object):
         self.text_processor = TextProcessor()
         self.keyword_extractor = KeyWordExtractor()
 
-        self.file_paths = ["resources/doc1.txt", "resources/doc2.txt", "resources/doc3.txt", 
-                           "resources/doc4.txt", "resources/doc5.txt", "resources/doc6.txt" ]
-        self.document_library = file_io.load_many_text_files(self.filePaths)
+        self.file_paths = ["app/resources/doc1.txt", "app/resources/doc2.txt", "app/resources/doc3.txt", 
+                           "app/resources/doc4.txt", "app/resources/doc5.txt", "app/resources/doc6.txt" ]
+        self.document_library = self.file_io.load_many_text_files(self.file_paths)
         self.processed_text_documents = []
         self.sorted_important_words_by_count = {}
         self.documents_sentences = {}
@@ -33,7 +29,7 @@ class InterestingWordManager(object):
             processed_word_library.append(_text_processor.preprocessor(document))
 
         for document in processed_word_library:
-            processed_doc_library.append(_text_processor.stringifyTokenArray(document))
+            processed_doc_library.append(_text_processor.stringify_token_array(document))
         return processed_doc_library
     
     def get_sorted_important_words(self, _document_library, _keyword_extractor, _processed_text_documents):
@@ -50,10 +46,10 @@ class InterestingWordManager(object):
         print(sorted_important_words)
         return sorted_important_words
 
-    def get_document_sentences(self, _text_processor, _document_library):
+    def get_document_sentences(self, _text_processor, _document_library, _file_paths):
         document_sentences = {}
-        for index in range(len(filePaths)):
-            file_name = os.path.basename(filePaths[index])
+        for index in range(len(_file_paths)):
+            file_name = os.path.basename(_file_paths[index])
             document_sentences[file_name] = _text_processor.convert_to_sentences(_document_library[index])
         return document_sentences
 
@@ -79,7 +75,7 @@ class InterestingWordManager(object):
         return terms
 
     def get_interesting_terms(self):
-        self.processed_text_documents = process_documents(self.document_library)
-        self.sorted_important_words_by_count = get_sorted_important_words(self.document_library, self.keyword_extractor, self.processed_text_documents)
-        self.documents_sentences = get_document_sentences(self.text_processor, self.document_library)
-        return get_interesting_terms_docs_sentences(self.sorted_important_words_by_count, self.documents_sentences)
+        self.processed_text_documents = self.process_documents(self.document_library, self.text_processor)
+        self.sorted_important_words_by_count = self.get_sorted_important_words(self.document_library, self.keyword_extractor, self.processed_text_documents)
+        self.documents_sentences = self.get_document_sentences(self.text_processor, self.document_library, self.file_paths)
+        return self.get_interesting_terms_docs_sentences(self.sorted_important_words_by_count, self.documents_sentences)
