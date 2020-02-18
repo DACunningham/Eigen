@@ -6,7 +6,7 @@ import nltk.data
 from app.nlp.FileIO import FileIO
 
 class TextProcessor(object):
-    """description of class"""
+    """TextProcessor provides a number of pre-processing methods that can be called on text"""
     STOP_WORD_LOCATION = "app/resources/stopwords.txt"
 
     def __init__(self, *args, **kwargs):

@@ -81,6 +81,7 @@
     <Content Include="app\resources\doc5.txt" />
     <Content Include="app\resources\doc6.txt" />
     <Content Include="app\resources\stopwords.txt" />
+    <Content Include="app\static\app\content\term_table.css" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
     <Content Include="app\static\app\content\bootstrap.css" />
@@ -105,8 +106,6 @@
     <Content Include="app\static\app\scripts\respond.js" />
     <Content Include="app\static\app\scripts\respond.min.js" />
     <Content Include="app\static\app\scripts\_references.js" />
-    <Content Include="app\templates\app\about.html" />
-    <Content Include="app\templates\app\contact.html" />
     <Content Include="app\templates\app\index.html" />
     <Content Include="app\templates\app\layout.html" />
     <Content Include="app\templates\app\login.html" />

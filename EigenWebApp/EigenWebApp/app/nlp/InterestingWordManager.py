@@ -43,7 +43,7 @@ class InterestingWordManager(object):
                 sorted_important_words[key] = item[key]
 
         sorted_important_words = sorted(sorted_important_words.items(), key=lambda x:x[1], reverse = True)
-        print(sorted_important_words)
+
         return sorted_important_words
 
     def get_document_sentences(self, _text_processor, _document_library, _file_paths):
@@ -66,12 +66,6 @@ class InterestingWordManager(object):
                         if term_count_in_document == 1:
                             temp_term.term_in_documents.append(key)
             terms.append(temp_term)
-
-        print("----------------------------------------")
-        print(terms[0].term)
-        print(terms[0].total_term_count)
-        print(terms[0].term_in_documents)
-        print(terms[0].term_in_sentences)
         return terms
 
     def get_interesting_terms(self):

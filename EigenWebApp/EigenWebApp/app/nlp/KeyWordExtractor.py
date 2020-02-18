@@ -6,7 +6,7 @@ class KeyWordExtractor(object):
     def __init__(self, *args, **kwargs):
         #create a vocabulary of words, 
         #ignore words that appear in 85% of documents, 
-        self.count_vectorizer = CountVectorizer(max_df = 0.85, min_df = 1, max_features = 10000)
+        self.count_vectorizer = CountVectorizer(max_df = 0.85, min_df = 2, max_features = 10000)
         return super().__init__(*args, **kwargs)
 
     def sort_coo(self, coo_matrix):
@@ -43,5 +43,4 @@ class KeyWordExtractor(object):
         #Get feature names (words/n-grams). It is sorted by position in sparse matrix
         feature_names = self.count_vectorizer.get_feature_names()
         n_grams = self.extract_topn_from_vector(feature_names, sorted_items, 3)
-        print(n_grams)
         return n_grams
