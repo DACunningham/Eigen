@@ -33,6 +33,7 @@ def contact(request):
             'title':'Contact',
             'message':'Your contact page.',
             'year':datetime.now().year,
+            'interesting_terms':interesting_terms
         }
     )
 

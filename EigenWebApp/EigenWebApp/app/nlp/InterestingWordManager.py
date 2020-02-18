@@ -40,7 +40,7 @@ class InterestingWordManager(object):
 
         for item in temp_doc_results:
             for key in item:
-                sorted_important_words[key] = document_results[key]
+                sorted_important_words[key] = item[key]
 
         sorted_important_words = sorted(sorted_important_words.items(), key=lambda x:x[1], reverse = True)
         print(sorted_important_words)
