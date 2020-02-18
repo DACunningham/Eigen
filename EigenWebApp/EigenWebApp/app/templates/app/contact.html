@@ -4,6 +4,14 @@
 
 <h2>{{ title }}.</h2>
 <h3>{{ message }}</h3>
+<h4>{{ interesting_terms.0.term }}</h4>
+
+{% for term in interesting_terms %}
+    <p>{{ term.term }}</p>
+    <p>{{ term.total_term_count }}</p>
+    <p>{{ term.term_in_documents.0 }}</p>
+    <p>{{ term.term_in_sentences.0 }}</p>
+{% endfor %}
 
 <address>
     One Microsoft Way<br />
